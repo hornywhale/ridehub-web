@@ -1,1 +1,12 @@
-<p>profile works!</p>
+<h2>Профиль</h2>
+
+<form (ngSubmit)="saveProfile()">
+  <input [(ngModel)]="user.fullName" name="fullName" placeholder="ФИО" required><br>
+  <input [(ngModel)]="user.email" name="email" placeholder="Email" readonly><br> <!-- Email не даем менять -->
+  <input [(ngModel)]="user.phone" name="phone" placeholder="Телефон"><br>
+  <input [(ngModel)]="user.address" name="address" placeholder="Адрес"><br>
+  <input [(ngModel)]="user.favoriteType" name="favoriteType" placeholder="Любимый тип мотоциклов"><br>
+  <button type="submit">Сохранить изменения</button>
+</form>
+
+<button (click)="logout()">Выйти</button>

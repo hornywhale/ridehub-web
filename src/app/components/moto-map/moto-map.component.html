@@ -17,8 +17,8 @@
         </div>
       </map-info-window>
   </google-map> -->
-
-  <google-map [height]="'400px'" [width]="'100%'" [center]="center" [zoom]="zoom">
+<div class="map-container">
+<google-map [height]="'800px'" [width]="'100%'" [center]="center" [zoom]="zoom">
   
     <map-marker *ngFor="let moto of motos"
     [position]="{ lat: moto.lat, lng: moto.lng }"
@@ -41,3 +41,4 @@
     </map-info-window>
   
   </google-map>
+</div>

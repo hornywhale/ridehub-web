@@ -349,7 +349,7 @@ export class MotoMapComponent implements OnInit {
       "Yamaha R6": {
         model: 'Yamaha R6',
         hourlyRate: 20,
-        imageUrl: 'assets/images/bike1.jpg',
+        imageUrl: 'assets/images/yamaha_r6.jpg',
         icon: {
           url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
           scaledSize: new google.maps.Size(32, 32),
@@ -359,7 +359,7 @@ export class MotoMapComponent implements OnInit {
       "Kawasaki ZX6RR": {
         model: 'Kawasaki ZX6RR',
         hourlyRate: 22,
-        imageUrl: 'assets/images/bike2.jpg',
+        imageUrl: 'assets/images/kawasaki_zx6rr.jpg',
         icon: {
           url: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
           scaledSize: new google.maps.Size(32, 32),
@@ -369,7 +369,7 @@ export class MotoMapComponent implements OnInit {
       "Honda CBR1000RR-R": {
         model: 'Honda CBR1000RR-R',
         hourlyRate: 25,
-        imageUrl: 'assets/images/bike3.jpg',
+        imageUrl: 'assets/images/cbr1000rrr.jpg',
         icon: {
           url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
           scaledSize: new google.maps.Size(32, 32),
@@ -379,7 +379,7 @@ export class MotoMapComponent implements OnInit {
       "Suzuki Hayabusa": {
         model: 'Suzuki Hayabusa',
         hourlyRate: 30,
-        imageUrl: 'assets/images/bike4.jpg',
+        imageUrl: 'assets/images/hayabusa.jpg',
         icon: {
           url: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
           scaledSize: new google.maps.Size(32, 32),
@@ -389,7 +389,7 @@ export class MotoMapComponent implements OnInit {
       "BMW S1000RR": {
         model: 'BMW S1000RR',
         hourlyRate: 35,
-        imageUrl: 'assets/images/bike5.jpg',
+        imageUrl: 'assets/images/s1000rr.jpg',
         icon: {
           url: 'http://maps.google.com/mapfiles/ms/icons/purple-dot.png',
           scaledSize: new google.maps.Size(32, 32),

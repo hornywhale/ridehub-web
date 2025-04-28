@@ -22,7 +22,43 @@ export class MotoService {
       hourlyRate: 18,
       imageUrl: 'assets/images/kawasaki_zx6rr.jpg',
       location: 'Белград, Новый Белград',
+      isAvailable: true
+    },
+    {
+      id: 3,
+      brand: 'Suzuki',
+      model: 'Hayabusa',
+      hourlyRate: 30,
+      imageUrl: 'assets/images/hayabusa.jpg',
+      location: 'Белград, Новый Белград',
+      isAvailable: true
+    },
+    {
+      id: 4,
+      brand: 'BMW',
+      model: 'S1000RR',
+      hourlyRate: 35,
+      imageUrl: 'assets/images/s1000rr.jpg',
+      location: 'Белград, Новый Белград',
+      isAvailable: true
+    },
+    {
+      id: 5,
+      brand: 'KTM',
+      model: '990 RC-R',
+      hourlyRate: 25,
+      imageUrl: 'assets/images/990rcr.jpg',
+      location: 'Белград, Новый Белград',
       isAvailable: false
+    },
+    {
+      id: 6,
+      brand: 'Honda',
+      model: 'CBR1000RR-R',
+      hourlyRate: 18,
+      imageUrl: 'assets/images/cbr1000rrr.jpg',
+      location: 'Белград, Новый Белград',
+      isAvailable: true
     }
   ];
 

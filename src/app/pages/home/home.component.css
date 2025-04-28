@@ -14,7 +14,8 @@ p {
 .moto-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     margin-top: 20px;
+    margin-left: 3%;
     gap: 20px;
   }
