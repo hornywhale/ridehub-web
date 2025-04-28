@@ -1,4 +1,4 @@
-<google-map [height]="'400px'" [width]="'100%'" [center]="center" [zoom]="zoom">
+<!-- <google-map [height]="'400px'" [width]="'100%'" [center]="center" [zoom]="zoom">
     <map-marker *ngFor="let moto of motos"
                 [position]="{ lat: moto.lat, lng: moto.lng }"
                 [icon]="moto.icon"
@@ -16,4 +16,28 @@
           </button>
         </div>
       </map-info-window>
+  </google-map> -->
+
+  <google-map [height]="'400px'" [width]="'100%'" [center]="center" [zoom]="zoom">
+  
+    <map-marker *ngFor="let moto of motos"
+    [position]="{ lat: moto.lat, lng: moto.lng }"
+    [icon]="moto.icon"
+    [label]="{ text: moto.brand, fontSize: '12px', fontWeight: 'bold' }"
+    (mapClick)="openInfoWindow(markerRef, moto)"
+    #markerRef="mapMarker">
+</map-marker>
+  
+    <map-info-window>
+      <div *ngIf="selectedMoto">
+        <h3>{{ selectedMoto.brand }}</h3>
+        <img [src]="selectedMoto.imageUrl" alt="{{ selectedMoto.brand }}" style="width: 100px; height: auto;">
+        <p>Цена аренды: €{{ selectedMoto.hourlyRate }}/час</p>
+        <p>Локация: {{ selectedMoto.lat.toFixed(4) }}, {{ selectedMoto.lng.toFixed(4) }}</p>
+        <button mat-raised-button color="primary">
+          Добавить в корзину
+        </button>
+      </div>
+    </map-info-window>
+  
   </google-map>

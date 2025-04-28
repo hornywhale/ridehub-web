@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -18,8 +18,10 @@ import { MotoMapComponent } from "../../components/moto-map/moto-map.component";
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  @ViewChild(MotoMapComponent) mapComponent!: MotoMapComponent;
   onRentMoto(moto: any) {
-    console.log(moto);
+    console.log('Аренда мотоцикла:', moto);
+    this.mapComponent.highlightOnlySelectedMarker(moto);
   }
   motos: Moto[] = [];
 
