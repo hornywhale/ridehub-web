@@ -1,0 +1,4 @@
+<div class="moto-list">
+    <app-moto-card *ngFor="let moto of motos" [moto]="moto" (rent)="onRentMoto($event)"></app-moto-card>
+</div>
+<app-moto-map></app-moto-map>
