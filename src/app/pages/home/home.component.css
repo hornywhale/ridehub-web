@@ -1,0 +1,12 @@
+.card {
+    width: 30%;
+    height: 10vw;
+}
+
+.card-container {
+    display: flex;
+}
+
+p {
+    color: #ebebeb;
+}

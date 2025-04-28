@@ -10,13 +10,20 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^19.2.0",
+    "@angular/cdk": "^19.2.11",
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
     "@angular/core": "^19.2.0",
     "@angular/forms": "^19.2.0",
+    "@angular/material": "^19.2.11",
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
+    "@coreui/angular": "~5.4.10",
+    "@coreui/coreui": "~5.2.0 || ~5.3.1",
+    "@coreui/icons-angular": "~5.4.10",
+    "@popperjs/core": "~2.11.8",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
@@ -33,5 +40,9 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.7.2"
-  }
+  },
+  "assets": [
+    "src/favicon.ico",
+    "src/assets"
+  ]
 }

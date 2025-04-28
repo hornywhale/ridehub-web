@@ -1,0 +1,22 @@
+.logo {
+    height: 90%;
+}
+
+.center {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-third {
+    width: 33%;
+}
+
+.right {
+    display: flex;
+    justify-content: right;
+}
+
+h1 h2 h3 p span {
+    color: #ebebeb;
+}
