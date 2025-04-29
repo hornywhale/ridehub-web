@@ -1,2 +1,26 @@
-<p>cart works!</p>
-<a routerLink="/">penis 2</a>
+<div class="cart-container">
+    <h2>Корзина аренды 🛒</h2>
+  
+    <div *ngIf="cart.length > 0; else emptyCart">
+      <mat-card *ngFor="let moto of cart" class="moto-card">
+        <mat-card-header>
+          <mat-card-title>{{ moto.brand }} {{ moto.model }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Цена за час: {{ moto.hourlyRate }} €</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="warn" (click)="removeMoto(moto.id)">Удалить</button>
+        </mat-card-actions>
+      </mat-card>
+  
+      <div class="cart-summary">
+        <h3>Общая стоимость: {{ getTotalPrice() }} €</h3>
+        <button mat-raised-button color="primary" (click)="clearCart()">Очистить корзину</button>
+      </div>
+    </div>
+  
+    <ng-template #emptyCart>
+      <p>Корзина пустая 🚫</p>
+    </ng-template>
+  </div>

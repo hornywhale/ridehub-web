@@ -1,6 +1,13 @@
-<div class="moto-list-container">
+
+<div class="filter-panel">
+    <label *ngFor="let category of categories">
+      <input type="checkbox" [(ngModel)]="category.checked" (change)="updateFilteredMotos()" />
+      {{ category.name }}
+    </label>
+  </div>
+  <div class="moto-list-container">
     <div class="moto-list">
-        <app-moto-card *ngFor="let moto of motos" [moto]="moto" (rent)="onRentMoto($event)"></app-moto-card>
+        <app-moto-card *ngFor="let moto of filteredMotos" [moto]="moto" (rent)="onRentMoto($event)"></app-moto-card>
     </div>
 </div>
-<app-moto-map></app-moto-map>
+<app-moto-map [activeTypes]="selectedTypes"></app-moto-map>

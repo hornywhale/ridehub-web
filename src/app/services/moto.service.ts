@@ -13,7 +13,8 @@ export class MotoService {
       hourlyRate: 15,
       imageUrl: 'assets/images/yamaha_r6.jpg',
       location: 'Белград, Центр',
-      isAvailable: true
+      isAvailable: true,
+      type: "Sport"
     },
     {
       id: 2,
@@ -22,7 +23,8 @@ export class MotoService {
       hourlyRate: 18,
       imageUrl: 'assets/images/kawasaki_zx6rr.jpg',
       location: 'Белград, Новый Белград',
-      isAvailable: true
+      isAvailable: true,
+      type: "Sport"
     },
     {
       id: 3,
@@ -31,7 +33,8 @@ export class MotoService {
       hourlyRate: 30,
       imageUrl: 'assets/images/hayabusa.jpg',
       location: 'Белград, Новый Белград',
-      isAvailable: true
+      isAvailable: true,
+      type: "Sport"
     },
     {
       id: 4,
@@ -40,7 +43,8 @@ export class MotoService {
       hourlyRate: 35,
       imageUrl: 'assets/images/s1000rr.jpg',
       location: 'Белград, Новый Белград',
-      isAvailable: true
+      isAvailable: true,
+      type: "Sport"
     },
     {
       id: 5,
@@ -49,7 +53,8 @@ export class MotoService {
       hourlyRate: 25,
       imageUrl: 'assets/images/990rcr.jpg',
       location: 'Белград, Новый Белград',
-      isAvailable: false
+      isAvailable: false,
+      type: "Sport"
     },
     {
       id: 6,
@@ -58,7 +63,8 @@ export class MotoService {
       hourlyRate: 18,
       imageUrl: 'assets/images/cbr1000rrr.jpg',
       location: 'Белград, Новый Белград',
-      isAvailable: true
+      isAvailable: true,
+      type: "Sport"
     }
   ];
 

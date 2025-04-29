@@ -6,4 +6,5 @@ export interface Moto {
     imageUrl: string;
     location: string;
     isAvailable: boolean;
+    type: string;
   }
