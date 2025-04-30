@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatFormField, MatLabel } from '@angular/material/select';
 import { MatButton } from '@angular/material/button';
@@ -12,7 +12,7 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   standalone: true,
-  imports: [FormsModule, MatFormField, MatLabel, MatButton, MatInputModule, MatCardModule]
+  imports: [FormsModule, MatFormField, MatLabel, MatButton, MatInputModule, MatCardModule, RouterLink]
 })
 export class LoginComponent {
   email = '';
