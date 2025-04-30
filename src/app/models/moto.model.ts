@@ -7,4 +7,5 @@ export interface Moto {
     location: string;
     isAvailable: boolean;
     type: string;
+    description: string;
   }

@@ -1,26 +1,38 @@
 <div class="cart-container">
-    <h2>Корзина аренды 🛒</h2>
-  
-    <div *ngIf="cart.length > 0; else emptyCart">
-      <mat-card *ngFor="let moto of cart" class="moto-card">
-        <mat-card-header>
-          <mat-card-title>{{ moto.brand }} {{ moto.model }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p>Цена за час: {{ moto.hourlyRate }} €</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-raised-button color="warn" (click)="removeMoto(moto.id)">Удалить</button>
-        </mat-card-actions>
-      </mat-card>
-  
-      <div class="cart-summary">
-        <h3>Общая стоимость: {{ getTotalPrice() }} €</h3>
-        <button mat-raised-button color="primary" (click)="clearCart()">Очистить корзину</button>
+<h2 class="mb-4">🛒 Your Cart</h2>
+
+<mat-card *ngFor="let item of cartItems" class="mb-3">
+  <div class="flex-container">
+    <img mat-card-image [src]="item.moto.imageUrl" alt="{{ item.moto.model }}" class="thumb" />
+    <div class="info">
+      <mat-card-title>{{ item.moto.brand }} {{ item.moto.model }}</mat-card-title>
+      <mat-card-subtitle>{{ item.moto.location }}</mat-card-subtitle>
+      <p>Rate: {{ item.moto.hourlyRate | currency:'EUR' }}/hour</p>
+
+      <div class="quantity-controls">
+        <button mat-icon-button (click)="decrement(item.moto.id)">
+          <mat-icon>remove</mat-icon>
+        </button>
+        <span class="quantity">{{ item.quantity }}</span>
+        <button mat-icon-button (click)="increment(item.moto.id)">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="removeItem(item.moto.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
       </div>
     </div>
-  
-    <ng-template #emptyCart>
-      <p>Корзина пустая 🚫</p>
-    </ng-template>
   </div>
+</mat-card>
+
+<mat-divider *ngIf="cartItems.length > 0" class="my-3"></mat-divider>
+
+<div *ngIf="cartItems.length > 0" class="total-section">
+  <p><strong>Total:</strong> {{ getTotal() | currency:'EUR' }}</p>
+  <button mat-raised-button color="primary" (click)="placeOrder()">Place Order</button>
+</div>
+
+<div *ngIf="cartItems.length === 0">
+  <p>Your cart is empty.</p>
+</div>
+</div>

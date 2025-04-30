@@ -1,0 +1,43 @@
+<h2 mat-dialog-title class="mb-2">
+    {{ data.brand }} {{ data.model }}
+  </h2>
+  
+  <mat-dialog-content class="dialog-content">
+  
+    <mat-card class="mb-4">
+      <img mat-card-image [src]="data.imageUrl" alt="{{ data.model }}" />
+      <mat-card-content>
+        <p><strong>Price:</strong> {{ data.hourlyRate }} €/hour</p>
+        <p><strong>Type:</strong> {{ data.type }}</p>
+        <p><strong>Location:</strong> {{ data.location }}</p>
+      </mat-card-content>
+    </mat-card>
+  
+    <h3 class="mb-2">📝 Reviews</h3>
+  
+    <div *ngIf="reviews.length === 0" class="empty text-muted mb-2">
+      No reviews yet.
+    </div>
+  
+    <mat-card *ngFor="let review of reviews" class="mb-3 review-card">
+      <mat-card-header>
+        <mat-card-title>
+          {{ review.user }}
+        </mat-card-title>
+        <mat-card-subtitle>{{ review.timestamp | date:'short' }}</mat-card-subtitle>
+        <div class="spacer"></div>
+        <button *ngIf="review.user === currentUser" mat-icon-button color="warn" (click)="deleteReview(review)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-header>
+      <mat-card-content>
+        <p>⭐ {{ review.rating }}/5</p>
+        <p>{{ review.text }}</p>
+      </mat-card-content>
+    </mat-card>
+  
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" (click)="dialogRef.close()">Close</button>
+  </mat-dialog-actions>

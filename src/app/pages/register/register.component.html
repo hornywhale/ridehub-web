@@ -1,10 +1,47 @@
-<h2>Регистрация</h2>
-<form (ngSubmit)="register()">
-  <input [(ngModel)]="fullName" name="fullName" placeholder="ФИО" required><br>
-  <input [(ngModel)]="email" name="email" placeholder="Email" required><br>
-  <input [(ngModel)]="password" name="password" type="password" placeholder="Пароль" required><br>
-  <input [(ngModel)]="phone" name="phone" placeholder="Телефон"><br>
-  <input [(ngModel)]="address" name="address" placeholder="Адрес"><br>
-  <input [(ngModel)]="favoriteType" name="favoriteType" placeholder="Любимый тип мотоциклов"><br>
-  <button type="submit">Зарегистрироваться</button>
-</form>
+<mat-card class="register-card">
+    <mat-card-header>
+      <mat-card-title>📝 Register</mat-card-title>
+      <mat-card-subtitle>Create a new account</mat-card-subtitle>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <form (ngSubmit)="register()" #registerForm="ngForm" class="register-form">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Full Name</mat-label>
+          <input matInput [(ngModel)]="fullName" name="fullName" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="email" name="email" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput [(ngModel)]="password" name="password" type="password" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Phone</mat-label>
+          <input matInput [(ngModel)]="phone" name="phone">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Address</mat-label>
+          <input matInput [(ngModel)]="address" name="address">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Favorite Type of Motorcycle</mat-label>
+          <mat-select [(ngModel)]="favoriteType" name="favoriteType">
+            <mat-option value="Sport">Sport</mat-option>
+            <mat-option value="Naked">Naked</mat-option>
+            <mat-option value="Chopper">Chopper</mat-option>
+            <mat-option value="Touring">Touring</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" type="submit" class="full-width">Register</button>
+      </form>
+    </mat-card-content>
+  </mat-card>

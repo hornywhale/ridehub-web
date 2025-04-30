@@ -1,13 +1,33 @@
-
-<div class="filter-panel">
-    <label *ngFor="let category of categories">
-      <input type="checkbox" [(ngModel)]="category.checked" (change)="updateFilteredMotos()" />
-      {{ category.name }}
-    </label>
+<div class="sort-controls">
+    <mat-form-field appearance="fill">
+      <mat-label>Sort by</mat-label>
+      <mat-select [(ngModel)]="selectedSort" (selectionChange)="onSortChange()">
+        <mat-option value="price">Price</mat-option>
+        <mat-option value="brand">Brand</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Order</mat-label>
+      <mat-select [(ngModel)]="sortOrder" (selectionChange)="onSortOrderChange()">
+        <mat-option value="asc">Ascending</mat-option>
+        <mat-option value="desc">Descending</mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
+  
+  <div class="filter-section">
+    <mat-checkbox *ngFor="let category of categories" [(ngModel)]="category.checked" (change)="onCategoryChange()">
+      {{ category.name }}
+    </mat-checkbox>
+  </div>
+  
   <div class="moto-list-container">
     <div class="moto-list">
-        <app-moto-card *ngFor="let moto of filteredMotos" [moto]="moto" (rent)="onRentMoto($event)"></app-moto-card>
+      <app-moto-card *ngFor="let moto of filteredMotos" [moto]="moto" (rent)="onRentMoto($event)"></app-moto-card>
     </div>
-</div>
-<app-moto-map [activeTypes]="selectedTypes"></app-moto-map>
+  </div>
+  
+  <div #mapSection>
+    <app-moto-map [activeTypes]="selectedTypes"></app-moto-map>
+  </div>

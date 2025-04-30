@@ -5,6 +5,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MotoDetailsDialogComponent } from '../moto-details-dialog/moto-details-dialog.component';
 
 @Component({
   selector: 'app-moto-card',
@@ -14,7 +16,8 @@ import { CommonModule } from '@angular/common';
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule, 
+    MatDialogModule
   ],
   templateUrl: './moto-card.component.html',
   styleUrls: ['./moto-card.component.css']
@@ -27,4 +30,14 @@ export class MotoCardComponent {
     console.log('Клик на арендовать в карточке', this.moto);
     this.rent.emit(this.moto); // <-- Отправляем наружу выбранный мотоцикл
   }
+  constructor(private dialog: MatDialog) {}
+
+openDetails(moto: any) {
+  this.dialog.open(MotoDetailsDialogComponent, {
+    data: {
+      ...moto,
+      reviews: ['🔥 Просто ракета!', '💨 Лучший мотоцикл для города.', '❤️ Обожаю звук мотора!']
+    }
+  });
+}
 }

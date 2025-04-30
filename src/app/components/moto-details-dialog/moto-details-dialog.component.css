@@ -1,0 +1,22 @@
+.review-block {
+    margin-bottom: 1rem;
+  }
+  
+  .empty {
+    font-style: italic;
+    color: gray;
+  }
+
+  .dialog-content {
+    max-height: 70vh;
+    overflow: auto;
+  }
+  
+  .review-card mat-card-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }

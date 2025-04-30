@@ -1,0 +1,26 @@
+.dialog-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .warning-icon {
+    color: #f44336;
+    margin-bottom: 16px;
+  }
+  
+  h2 {
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: 500;
+  }
+  
+  p {
+    color: #666;
+    margin-bottom: 24px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }

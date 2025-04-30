@@ -1,0 +1,38 @@
+.about-hero {
+    margin-bottom: 24px;
+    text-align: center;
+    padding: 1%;
+  }
+  
+  .about-hero img {
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 2%;
+    padding: 2%;
+  }
+  
+  .about-section {
+    padding: 16px;
+  }
+  
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
+  }
+  .shadow {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 14px 28px, rgba(0, 0, 0, 0.1) 0px 10px 10px;
+  }

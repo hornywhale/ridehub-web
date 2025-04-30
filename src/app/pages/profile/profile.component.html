@@ -1,12 +1,47 @@
-<h2>Профиль</h2>
-
-<form (ngSubmit)="saveProfile()">
-  <input [(ngModel)]="user.fullName" name="fullName" placeholder="ФИО" required><br>
-  <input [(ngModel)]="user.email" name="email" placeholder="Email" readonly><br> <!-- Email не даем менять -->
-  <input [(ngModel)]="user.phone" name="phone" placeholder="Телефон"><br>
-  <input [(ngModel)]="user.address" name="address" placeholder="Адрес"><br>
-  <input [(ngModel)]="user.favoriteType" name="favoriteType" placeholder="Любимый тип мотоциклов"><br>
-  <button type="submit">Сохранить изменения</button>
-</form>
-
-<button (click)="logout()">Выйти</button>
+<mat-card class="profile-card">
+    <mat-card-header>
+      <mat-card-title>Profile</mat-card-title>
+      <mat-card-subtitle>Manage your profile and orders</mat-card-subtitle>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <form (ngSubmit)="saveProfile()">
+        <mat-form-field class="full-width">
+          <mat-label>Full Name</mat-label>
+          <input matInput [(ngModel)]="user.fullName" name="fullName" placeholder="Full Name" required>
+        </mat-form-field>
+  
+        <mat-form-field class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="user.email" name="email" placeholder="Email" readonly class="unavailable-input">
+        </mat-form-field>
+  
+        <mat-form-field class="full-width">
+          <mat-label>Phone</mat-label>
+          <input matInput [(ngModel)]="user.phone" name="phone" placeholder="Phone">
+        </mat-form-field>
+  
+        <mat-form-field class="full-width">
+          <mat-label>Address</mat-label>
+          <input matInput [(ngModel)]="user.address" name="address" placeholder="Address">
+        </mat-form-field>
+  
+        <mat-form-field class="full-width">
+          <mat-label>Favorite Motorcycle Type</mat-label>
+          <mat-select [(ngModel)]="user.favoriteType" name="favoriteType">
+            <mat-option value="Sport">Sport</mat-option>
+            <mat-option value="Naked">Naked</mat-option>
+            <mat-option value="Touring">Touring</mat-option>
+            <mat-option value="Chopper">Chopper</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" type="submit">Save Changes</button>
+      </form>
+  
+      <div class="actions">
+        <button mat-button routerLink="/orders">My Orders</button>
+        <button mat-button color="warn" (click)="logout()">Logout</button>
+      </div>
+    </mat-card-content>
+  </mat-card>

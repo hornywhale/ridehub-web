@@ -1,0 +1,10 @@
+<div class="dialog-container">
+    <mat-icon color="primary">shopping_cart</mat-icon>
+    <h2>Added to Cart</h2>
+    <p>{{ data.moto.brand }} has been successfully added to your cart.</p>
+  
+    <div class="buttons">
+      <button mat-button (click)="dialogRef.close()">Close</button>
+      <button mat-raised-button color="primary" (click)="goToCart()">Go to Cart</button>
+    </div>
+  </div>

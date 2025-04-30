@@ -2,12 +2,15 @@
     <img class="card-image" mat-card-image [src]="moto.imageUrl" alt="{{ moto.model }}">
     <mat-card-content>
       <h2>{{ moto.brand }} {{ moto.model }}</h2>
-      <p>Цена аренды: €{{ moto.hourlyRate }}/час</p>
-      <p>Локация: {{ moto.location }}</p>
+      <p>Price: €{{ moto.hourlyRate }}/hour</p>
+      <p>Location: {{ moto.location }}</p>
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button (click)="onRentClick()" color="primary" [disabled]="!moto.isAvailable">
-        {{ moto.isAvailable ? 'Арендовать' : 'Недоступен' }}
+        {{ moto.isAvailable ? 'Rent' : 'Unavailable' }}
+      </button>
+      <button mat-raised-button (click)="openDetails(moto)" color="primary">
+        Details
       </button>
     </mat-card-actions>
   </mat-card>

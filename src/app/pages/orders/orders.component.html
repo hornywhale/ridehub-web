@@ -1,1 +1,53 @@
-<p>orders works!</p>
+<div class="orders-container">
+    <h2 class="mb-4">📦 My Orders</h2>
+
+<section *ngFor="let status of statuses">
+  <h3 class="section-title">{{ status | titlecase }} Orders</h3>
+
+  <div *ngIf="getOrdersByStatus(status).length === 0" class="empty">
+    No {{ status }} orders.
+  </div>
+
+  <mat-card *ngFor="let order of getOrdersByStatus(status)" class="order-card">
+    <mat-card-header>
+      <mat-card-title>Order #{{ order.id }}</mat-card-title>
+      <mat-card-subtitle>{{ order.timestamp | date:'medium' }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div *ngFor="let item of order.motos" class="order-item">
+        <img [src]="item.moto.imageUrl" alt="{{ item.moto.model }}" class="thumb" />
+        <div class="info">
+          <h4>{{ item.moto.brand }}</h4>
+          <p>Location: {{ item.moto.location }}</p>
+          <p>Rate: €{{ item.moto.hourlyRate }}/hour</p>
+          <p>Hours: {{ item.quantity }}</p>
+
+          <button *ngIf="order.status === 'completed' || order.status === 'canceled'"
+          mat-stroked-button color="primary"
+          (click)="openReviewDialog(item.moto)">
+    Leave Review
+  </button>
+        </div>
+      </div>
+
+      <div class="summary">
+        <strong>Total Time:</strong> {{ getTotalHours(order) }} hours<br />
+        <strong>Total Price:</strong> €{{ getTotalPrice(order) }}
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button *ngIf="order.status === 'ongoing'" mat-button color="warn" (click)="cancelOrder(order.id)">
+            Cancel Order
+          </button>
+        
+          <button *ngIf="order.status === 'completed' || order.status === 'canceled'" mat-button color="warn" (click)="deleteOrder(order.id)">
+            <mat-icon>delete</mat-icon>Delete Order
+          </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-divider class="my-4"></mat-divider>
+</section>
+</div>

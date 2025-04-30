@@ -2,13 +2,17 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { MatFormField, MatLabel } from '@angular/material/select';
+import { MatButton } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   standalone: true,
-  imports: [FormsModule]
+  imports: [FormsModule, MatFormField, MatLabel, MatButton, MatInputModule, MatCardModule]
 })
 export class LoginComponent {
   email = '';
@@ -19,7 +23,6 @@ export class LoginComponent {
   login() {
     const success = this.authService.login(this.email, this.password);
     if (success) {
-      alert('Вход выполнен!');
       this.router.navigate(['/']);
     } else {
       alert('Неверный email или пароль.');

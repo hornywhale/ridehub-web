@@ -1,0 +1,18 @@
+.dialog-container {
+    text-align: center;
+    padding: 16px;
+  }
+  
+  .dialog-container mat-icon {
+    margin-bottom: 12px;
+  }
+  
+  .dialog-container h2 {
+    margin: 8px 0;
+  }
+  
+  .dialog-container .buttons {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-around;
+  }

@@ -1,37 +1,84 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
-import { MatButtonModule } from '@angular/material/button';
+import { CartItem } from '../../models/cart-item.model';
+import { OrderService } from '../../services/order.service';
+import { AuthService } from '../../services/auth.service'; // если есть
 import { MatCardModule } from '@angular/material/card';
-import { NgFor } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { NgFor, CurrencyPipe, CommonModule } from '@angular/common';
+import { MatDividerModule } from '@angular/material/divider';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
+  imports: [
+    MatCardModule, MatButtonModule, MatIconModule, NgFor, CurrencyPipe, MatDividerModule, CommonModule
+  ],
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css'],
-  imports: [CommonModule, MatButtonModule, MatCardModule, NgFor]
+  styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cart: any[] = [];
+  cartItems: CartItem[] = [];
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private orderService: OrderService,
+    private authService: AuthService, // если используешь
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.cart = this.cartService.getCart();
+    this.refresh();
   }
 
-  removeMoto(motoId: number) {
+  refresh() {
+    this.cartItems = this.cartService.getItems();
+  }
+
+  increment(motoId: number) {
+    this.cartService.updateQuantity(motoId, +1);
+    this.refresh();
+  }
+
+  decrement(motoId: number) {
+    this.cartService.updateQuantity(motoId, -1);
+    this.refresh();
+  }
+
+  removeItem(motoId: number) {
     this.cartService.removeFromCart(motoId);
-    this.cart = this.cartService.getCart(); // обновляем корзину
+    this.refresh();
   }
 
-  clearCart() {
+  getTotal(): number {
+    return this.cartItems.reduce(
+      (sum, item) => sum + item.moto.hourlyRate * item.quantity, 0
+    );
+  }
+
+  placeOrder() {
+    const user = localStorage.getItem('currentUser'); // или другой метод получения
+    if (!user) {
+      alert("You must be logged in to place an order.");
+      return;
+    }
+
+    const order = {
+      id: Date.now(),
+      user,
+      motos: this.cartItems.map(item => ({
+        moto: item.moto,
+        quantity: item.quantity
+      })),
+      timestamp: new Date().toISOString(),
+      status: 'ongoing' as const
+    };
+
+    this.orderService.createOrder(order);
     this.cartService.clearCart();
-    this.cart = [];
-  }
-
-  getTotalPrice() {
-    return this.cartService.getTotalPrice();
+    alert('Order placed successfully! ✅');
+    this.router.navigate(['/orders']);
   }
 }

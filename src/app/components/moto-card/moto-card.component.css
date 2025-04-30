@@ -7,3 +7,11 @@
 .card-image {
     padding: 5%;
 }
+
+mat-card-actions {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+}

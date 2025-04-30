@@ -7,6 +7,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { MotoCardComponent } from './components/moto-card/moto-card.component';
 import { MotoMapComponent } from './components/moto-map/moto-map.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -15,6 +17,6 @@ export const routes: Routes = [
     { path: 'cart', component: CartComponent },
     { path: 'orders', component: OrdersComponent },
     { path: 'profile', component: ProfileComponent },
-    { path: "penis", component: MotoCardComponent},
-    { path: "zalupa", component: MotoMapComponent}
+    { path: "about", component: AboutComponent},
+    { path: "contact", component: ContactComponent}
 ];
