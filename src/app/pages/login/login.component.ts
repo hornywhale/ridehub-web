@@ -25,7 +25,7 @@ export class LoginComponent {
     if (success) {
       this.router.navigate(['/']);
     } else {
-      alert('Неверный email или пароль.');
+      alert('Incorrect email or password');
     }
   }
 }

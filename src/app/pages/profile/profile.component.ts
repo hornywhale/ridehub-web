@@ -47,7 +47,7 @@ export class ProfileComponent implements OnInit {
     );
     localStorage.setItem('users', JSON.stringify(updatedUsers));
     localStorage.setItem('motoFlowUser', JSON.stringify(this.user));
-    alert('Профиль обновлён!');
+    alert('Profile updated!');
   }
 
   logout() {

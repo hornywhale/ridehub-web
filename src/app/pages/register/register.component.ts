@@ -38,10 +38,10 @@ export class RegisterComponent {
     });
 
     if (success) {
-      alert('Регистрация успешна!');
+      alert('Registration successful!');
       this.router.navigate(['/login']);
     } else {
-      alert('Пользователь с таким email уже существует!');
+      alert('User with this email already exists');
     }
   }
 }
