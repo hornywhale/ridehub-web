@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+fullchain.pem
+privkey.pem
+ssl-dhparams.pem
